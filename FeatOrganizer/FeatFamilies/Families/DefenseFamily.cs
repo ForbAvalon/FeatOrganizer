@@ -36,6 +36,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string MurmursOfEarth = "94be54cd152d1c94396754de7bf0105f";
         private const string SteelSoul = "8bc16857824564d4e9400bbfcdd957fb";
         private const string AcrobaticSpellcaster = "7ba4b4023a7748669098c479dd9e8de6";
+        private const string DuelingMastery = "c3a66c1bbd2fb65498b130802d5f183a";
 
         // --- Families (0..N) ---
         private const string ArmorFocusSelection = "76d4885a395976547a13c5d6bf95b482";
@@ -64,7 +65,8 @@ namespace FeatOrganizer.FeatFamilies.Families
             LifeDominantSoul,
             MurmursOfEarth,
             SteelSoul,
-            AcrobaticSpellcaster
+            AcrobaticSpellcaster,
+            DuelingMastery
         };
 
         private static readonly string[] FamilyGuids =

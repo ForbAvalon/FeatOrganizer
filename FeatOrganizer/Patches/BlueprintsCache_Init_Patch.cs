@@ -28,6 +28,7 @@ namespace FeatOrganizer.Patches
                 UnarmedFeatFamily.Configure();
                 MetamagicFeatFamily.Configure();
                 MountedFeatFamily.Configure();
+                ShieldFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)
