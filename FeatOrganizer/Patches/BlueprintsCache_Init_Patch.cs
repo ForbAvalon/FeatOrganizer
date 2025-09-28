@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.JsonSystem;
 using FeatOrganizer.Features.Families;
 using FeatOrganizer.Utils;
+using FeatOrganizer.FeatFamilies;
 
 namespace FeatOrganizer.Patches
 {
@@ -18,7 +19,7 @@ namespace FeatOrganizer.Patches
             try
             {
                 Log.Info("[CO][Init] Applying RangedFeatFamily...");
-                RangedFeatFamily.Configure();
+                //RangedFeatFamily.Configure();
                 MeleeFeatFamily.Configure();
                 Log.Info("[CO][Init] RangedFeatFamily applied.");
             }

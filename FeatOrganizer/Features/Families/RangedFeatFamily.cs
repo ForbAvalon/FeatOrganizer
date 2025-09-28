@@ -1,4 +1,4 @@
-﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
+﻿/*using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -121,5 +121,5 @@ namespace FeatOrganizer.Features.Families
             basic.m_AllFeatures = features.ToArray();
         }
     }
-}
+}*/
 
