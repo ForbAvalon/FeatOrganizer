@@ -29,6 +29,7 @@ namespace FeatOrganizer.Patches
                 MetamagicFeatFamily.Configure();
                 MountedFeatFamily.Configure();
                 ShieldFeatFamily.Configure();
+                ProficiencyFeatFamily.Configure();
                 ClassRageFeatFamily.Configure();
                 ClassPaladinFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");

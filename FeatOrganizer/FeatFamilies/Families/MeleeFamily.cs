@@ -27,6 +27,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string LungeFeature = "d41d5bd9a775d7245929256d58a3e03e";
         private const string VitalStrikeFeature = "14a1fc1356df9f146900e1e42142fc9d";
         private const string Improved_Initiative = "797f25d709f559546b29e7bcb181cc74";
+        private const string Razortusk = "86af486a0d92427280c46127a216c85a";
 
         // --- Families (0..N) ---
         private const string FencingGrace = "47b352ea0f73c354aba777945760b441";
@@ -47,7 +48,8 @@ namespace FeatOrganizer.FeatFamilies.Families
             VitalStrikeFeatureImproved,
             LungeFeature, 
             VitalStrikeFeature,
-            Improved_Initiative
+            Improved_Initiative,
+            Razortusk
         };
 
         private static readonly string[] FamilyGuids =
