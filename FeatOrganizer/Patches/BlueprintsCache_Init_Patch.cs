@@ -29,6 +29,7 @@ namespace FeatOrganizer.Patches
                 MetamagicFeatFamily.Configure();
                 MountedFeatFamily.Configure();
                 ShieldFeatFamily.Configure();
+                ClassRageFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)

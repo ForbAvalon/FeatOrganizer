@@ -25,7 +25,6 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string VitalStrikeFeatureGreater = "e2d1fa11f6b095e4fb2fd1dcf5e36eb3";
         private const string VitalStrikeFeatureImproved = "52913092cd018da47845f36e6fbe240f";
         private const string LungeFeature = "d41d5bd9a775d7245929256d58a3e03e";
-        private const string RagingBrutality = "c002fad1506842abb2da5bcedacc358e";
         private const string VitalStrikeFeature = "14a1fc1356df9f146900e1e42142fc9d";
         private const string Improved_Initiative = "797f25d709f559546b29e7bcb181cc74";
 
@@ -47,7 +46,6 @@ namespace FeatOrganizer.FeatFamilies.Families
             VitalStrikeFeatureGreater, 
             VitalStrikeFeatureImproved,
             LungeFeature, 
-            RagingBrutality, 
             VitalStrikeFeature,
             Improved_Initiative
         };
