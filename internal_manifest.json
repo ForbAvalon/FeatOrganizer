@@ -1,0 +1,17 @@
+{
+  "Name": "Feat Organizer",
+  "Author": "Flenky",
+  "Id": {
+    "Id": "FeatOrganizer",
+    "Type": "UMM"
+  },
+  "Service": {
+    "GitHub": {
+      "Owner": "Flenky",
+      "RepoName": "FeatOrganizer"
+    }
+  },
+  "About": "Feat Organizer.",
+  "HomepageUrl": "https://github.com/Flenky85/FeatOrganizer",
+  "Tags": [ "Interface" ]
+}

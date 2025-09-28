@@ -1,0 +1,14 @@
+{
+  "Id": "FeatOrganizer",
+  "DisplayName": "Feat Organizer",
+  "Author": "Flenky",
+  "Version": "0.0.1",
+  "Description": "Feat Organizer.",
+  "GameId": "wrath",
+  "Requirements": [],
+  "AssemblyName": "FeatOrganizer.dll",
+  "EntryMethod": "FeatOrganizer.Main.Load",
+  "HomePage": "https://github.com/flenky85/FeatOrganizer",
+  "LoadAfter": [],
+  "LoadBefore": []
+}

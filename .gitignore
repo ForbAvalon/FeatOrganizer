@@ -1,0 +1,55 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+TestResults/
+[Bb]uild/
+[Ll]og/
+*.log
+*.tlog
+
+# Binaries (no subir DLL/EXE del mod)
+*.dll
+*.exe
+*.pdb
+*.mdb
+
+# NuGet
+packages/
+*.nupkg
+*.nuget.props
+*.nuget.targets
+.nuget/
+
+# IDEs
+.idea/
+.vscode/
+*.DotSettings.user
+_ReSharper*/
+_Rider*/
+
+# Cache / temporales
+*.cache
+*.tmp
+*.temp
+*.pidb
+*.svclog
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Others
+*.psess
+*.vsp
+*.vspx
+*.coverage
+*.coveragexml
