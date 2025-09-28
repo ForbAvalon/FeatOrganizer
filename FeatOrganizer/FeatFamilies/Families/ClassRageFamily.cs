@@ -1,4 +1,4 @@
-﻿using FeatOrganizer.Features.Families;
+﻿/*using FeatOrganizer.Features.Families;
 
 namespace FeatOrganizer.FeatFamilies.Families
 {
@@ -51,4 +51,4 @@ namespace FeatOrganizer.FeatFamilies.Families
             });
         }
     }
-}
+}*/

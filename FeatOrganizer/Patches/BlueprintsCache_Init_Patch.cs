@@ -33,8 +33,7 @@ namespace FeatOrganizer.Patches
                 AttackFeatFamily.Configure();
                 CriticalFeatFamily.Configure();
                 ManeuverFeatFamily.Configure();
-                ClassRageFeatFamily.Configure();
-                ClassPaladinFeatFamily.Configure();
+                ClassFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)
