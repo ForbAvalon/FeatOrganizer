@@ -24,6 +24,7 @@ namespace FeatOrganizer.Patches
                 SkillFeatFamily.Configure();
                 TeamworkFeatFamily.Configure();
                 MagicFeatFamily.Configure();
+                DefenseFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)

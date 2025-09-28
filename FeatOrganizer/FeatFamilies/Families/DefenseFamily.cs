@@ -2,65 +2,72 @@
 
 namespace FeatOrganizer.FeatFamilies.Families
 {
-    internal static class MagicFeatFamily
+    internal static class DefenseFeatFamily
     {
         // --- Selection meta ---
-        private const string SelectionGuid = "e7b2c1a4-3f5b-4c0a-9d3e-8f1a2b7c6d50";
-        private const string SelectionInternal = "FF.MagicFeats";
-        private const string SelectionNameKey = "FF.MagicFeats.Name";
-        private const string SelectionName = "Magic Feats";
-        private const string SelectionDescKey = "FF.MagicFeats.Desc";
-        private const string SelectionDesc = "A collection of magic feats.";
+        private const string SelectionGuid = "b1e7d3c2-48a9-4f0e-9b6a-2d4c7f8a5e31";
+        private const string SelectionInternal = "FF.DefenseFeats";
+        private const string SelectionNameKey = "FF.DefenseFeats.Name";
+        private const string SelectionName = "Defense Feats";
+        private const string SelectionDescKey = "FF.DefenseFeats.Desc";
+        private const string SelectionDesc = "A collection of defense feats.";
 
         // --- Feats (0..N) ---
-        private const string AmbuscadingSpell = "2fb48bed3746431bb3080c34f11597da";
-        private const string ArcaneSpiritFeat = "e55e2c96ae974bc9ac9fda8b3a56e432";
-        private const string CombatCasting = "06964d468fde1dc4aa71a92ea04d930d";
-        private const string DestructiveDispel = "d298e64e14398e848a54db5a2619ba42";
-        private const string DispelSynergy = "f3e3e29608ba07844ab3cafc4c8e4343";
-        private const string SpellFocus = "16fa59cc9a72a6043b566b49184f53fe";
-        private const string SpellPenetration = "ee7dc126939e4d9438357fbd5980d459";
-        private const string ElvenArcaneFocus = "f12795ec2c204d428738bbe1bfcad8fb";
-        private const string AugmentSummoning = "38155ca9e4055bb48a89240a2055dcc3";
-        private const string ElvenSpirit = "191a6ee9ccf849f8b34d34ad93b7af06";
-        private const string GreaterSpellPenetration = "1978c3f91cfbbc24b9c9b0d017f4beec";
-        private const string MagicalTail = "febb8fe9a2d142fb80c1be6b0b539d9d";
-        private const string SuperiorSummoning = "0477936c0f74841498b5c8753a8062a3";
-        private const string WarriorPriest = "b9bee4e4e15573546b76a8d942ce914b";
-
+        private const string ArcaneArmorMastery = "453f5181a5ed3a445abfa3bcd3f4ac0c";
+        private const string BlindFight = "4e219f5894ad0ea4daa0699e28c37b1d";
+        private const string CombatExpertiseFeature = "4c44724ffa8844f4d9bedb5bb27d144a";
+        private const string Diehard = "86669ce8759f9d7478565db69b8c19ad";
+        private const string Dodge = "97e216dbb46ae3c4faef90cf6bbe6fd5";
+        private const string Endurance = "54ee847996c25cd4ba8773d7b8555174";
+        private const string GreatFortitude = "79042cb55f030614ea29956177977c52";
+        private const string IronWill = "175d1577bb6c9a04baf88eec99c66334";
+        private const string LightningReflexes = "15e7da6645a7f3d41bdad7c8c4b9de1e";
+        private const string Toughness = "d09b20029e9abfe4480b356c92095623";
+        private const string ArcaneArmorTraining = "1a0298abacb6e0f45b7e28553e99e76c";
+        private const string DefensiveCombatTraining = "479c7f3b0dba69a4bbcb43e101f3f7f9";
+        private const string CautiousFighter = "4a6fbe77a4a2ce24db0cd0b1e4d93db1";
+        private const string Mobility = "2a6091b97ad940943b46262600eaeaeb";
+        private const string BlindFightGreater = "80a50d9744a40ac4c96e2cc6451a6703";
+        private const string BlindFightImproved = "4f1a78b02ac71bd4fa7d6e011d6f8ce0";
+        private const string GreatFortitudeImproved = "f5db1cc7ad48d794f85252fa4a64157b";
+        private const string IronWillImproved = "3ea2215150a1c8a4a9bfed9d9023903e";
+        private const string LightningReflexesImproved = "1e813eb8159b67a459b1c975027866e5";
+        private const string LifeDominantSoul = "8f58b4029511b5345981ffaf1da5ea2e";
+        private const string MurmursOfEarth = "94be54cd152d1c94396754de7bf0105f";
+        private const string SteelSoul = "8bc16857824564d4e9400bbfcdd957fb";
 
         // --- Families (0..N) ---
-        private const string GreaterElementalFocusSelection = "1c17446a3eb744f438488711b792ca4d";
-        private const string ElementalFocusSelection_0 = "bb24cc01319528849b09a3ae8eec0b31";
-        private const string SpellFocusGreater = "5b04b45b228461c43bad768eb0f7c7bf";
-        private const string SpellSpecializationSelection = "fe67bc3b04f1cd542b4df6e28b6e0ff5";
-
+        private const string ArmorFocusSelection = "76d4885a395976547a13c5d6bf95b482";
 
         private static readonly string[] MemberGuids =
         {
-            AmbuscadingSpell,
-            ArcaneSpiritFeat,
-            CombatCasting,
-            DestructiveDispel,
-            DispelSynergy,
-            SpellFocus,
-            SpellPenetration,
-            ElvenArcaneFocus,
-            AugmentSummoning,
-            ElvenSpirit,
-            GreaterSpellPenetration,
-            MagicalTail,
-            SuperiorSummoning,
-            WarriorPriest
+            BlindFight,
+            CombatExpertiseFeature,
+            Diehard,
+            Dodge,
+            Endurance,
+            GreatFortitude,
+            IronWill,
+            LightningReflexes,
+            Toughness,
+            ArcaneArmorTraining,
+            DefensiveCombatTraining,
+            CautiousFighter,
+            Mobility,
+            BlindFightGreater,
+            BlindFightImproved,
+            GreatFortitudeImproved,
+            IronWillImproved,
+            LightningReflexesImproved,
+            LifeDominantSoul,
+            MurmursOfEarth,
+            SteelSoul,
+            ArcaneArmorMastery
         };
 
         private static readonly string[] FamilyGuids =
         {
-            GreaterElementalFocusSelection,
-            ElementalFocusSelection_0,
-            SpellFocusGreater,
-            SpellSpecializationSelection
-
+            ArmorFocusSelection
         };
 
         public static void Configure()

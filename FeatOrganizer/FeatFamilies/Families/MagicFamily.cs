@@ -27,6 +27,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string MagicalTail = "febb8fe9a2d142fb80c1be6b0b539d9d";
         private const string SuperiorSummoning = "0477936c0f74841498b5c8753a8062a3";
         private const string WarriorPriest = "b9bee4e4e15573546b76a8d942ce914b";
+        private const string DispelFocus = "c39576f8842e4505b14aa918b3a36a0a";
 
 
         // --- Families (0..N) ---
@@ -51,7 +52,8 @@ namespace FeatOrganizer.FeatFamilies.Families
             GreaterSpellPenetration,
             MagicalTail,
             SuperiorSummoning,
-            WarriorPriest
+            WarriorPriest,
+            DispelFocus
         };
 
         private static readonly string[] FamilyGuids =
