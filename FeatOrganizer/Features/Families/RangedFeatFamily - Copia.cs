@@ -1,12 +1,10 @@
-﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
+﻿/*using System.Linq;
+using System.Collections.Generic;
+using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Designers.Mechanics.Facts;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FeatOrganizer.Features.Families
 {
@@ -52,43 +50,23 @@ namespace FeatOrganizer.Features.Families
                 .Select(g => BlueprintTool.GetRef<BlueprintFeatureReference>(g))
                 .ToArray();
 
-            // 1) Calcula la unión de tags de todos los feats miembros (y opcionalmente de familias anidadas)
-            FeatureTag aggregatedTags = FeatureTag.None;
-
-            void AccumulateTagsFrom(string guid)
-            {
-                var bp = BlueprintTool.Get<BlueprintFeature>(guid);
-                if (bp?.ComponentsArray == null) return;
-
-                foreach (var c in bp.ComponentsArray.OfType<FeatureTagsComponent>())
-                    aggregatedTags |= c.FeatureTags;
-            }
-
-            foreach (var guid in RangedMemberGuids)
-                AccumulateTagsFrom(guid);
-
-            // si quieres incluir también los tags de la familia anidada:
-            // AccumulateTagsFrom(PointBlankMaster);
-
-            // 2) Construye la selección y añade el FeatureTagsComponent con la unión
             var familyCfg = FeatureSelectionConfigurator.New(SelectionInternalName, RangedFeatsSelectionGuid)
                 .SetDisplayName(name)
                 .SetDescription(desc)
                 .SetIsClassFeature(true)
-                .SetGroups(FeatureGroup.Feat) // solo feats comunes
-                .SetIcon(pbsFeat.Icon)
-                .AddComponent<FeatureTagsComponent>(c => { c.FeatureTags = aggregatedTags; });
+                .SetGroups(FeatureGroup.Feat)            // ← solo Feat, para que no aparezca en bonus de Guerrero
+                .SetIcon(pbsFeat.Icon);
 
             foreach (var r in memberRefs)
                 familyCfg = familyCfg.AddToAllFeatures(r);
 
-            // Familia anidada (opcional)
+            // ← Añade la familia suelta (sub-selección) dentro de esta selección
             var pbmRef = BlueprintTool.GetRef<BlueprintFeatureReference>(PointBlankMaster);
             familyCfg = familyCfg.AddToAllFeatures(pbmRef);
 
             var family = familyCfg.Configure();
 
-            // 3) Limpieza en BasicFeatSelection (igual que antes)
+            // Quitar de BasicFeatSelection SOLO los feats sueltos y añadir la carpeta
             var basic = FeatureSelectionRefs.BasicFeatSelection.Reference.Get();
             var toRemove = new HashSet<BlueprintGuid>(RangedMemberGuids.Select(BlueprintGuid.Parse));
 
@@ -98,9 +76,9 @@ namespace FeatOrganizer.Features.Families
 
             features.RemoveAll(r =>
                 r == null
-             || toRemove.Contains(r.deserializedGuid)
-             || toRemove.Contains(r.Guid)
-             || (r.Get() != null && toRemove.Contains(r.Get().AssetGuid))
+                || toRemove.Contains(r.deserializedGuid)
+                || toRemove.Contains(r.Guid)
+                || (r.Get() != null && toRemove.Contains(r.Get().AssetGuid))
             );
 
             var familyRef = family.ToReference<BlueprintFeatureReference>();
@@ -115,5 +93,4 @@ namespace FeatOrganizer.Features.Families
             basic.m_AllFeatures = features.ToArray();
         }
     }
-}
-
+}*/
