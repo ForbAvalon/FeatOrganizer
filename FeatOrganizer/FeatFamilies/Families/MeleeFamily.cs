@@ -27,6 +27,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string LungeFeature = "d41d5bd9a775d7245929256d58a3e03e";
         private const string RagingBrutality = "c002fad1506842abb2da5bcedacc358e";
         private const string VitalStrikeFeature = "14a1fc1356df9f146900e1e42142fc9d";
+        private const string Improved_Initiative = "797f25d709f559546b29e7bcb181cc74";
 
         // --- Families (0..N) ---
         private const string FencingGrace = "47b352ea0f73c354aba777945760b441";
@@ -34,10 +35,21 @@ namespace FeatOrganizer.FeatFamilies.Families
 
         private static readonly string[] MemberGuids =
         {
-            PowerAttackFeature, WeaponFinesse, CombatReflexes, CleavingFinish,
-            ImprovedCleavingFinish, PiranhaStrikeFeature, CleaveFeature, FuriousFocus,
-            GreatCleaveFeature, VitalStrikeFeatureGreater, VitalStrikeFeatureImproved,
-            LungeFeature, RagingBrutality, VitalStrikeFeature
+            PowerAttackFeature, 
+            WeaponFinesse, 
+            CombatReflexes, 
+            CleavingFinish,
+            ImprovedCleavingFinish, 
+            PiranhaStrikeFeature, 
+            CleaveFeature, 
+            FuriousFocus,
+            GreatCleaveFeature, 
+            VitalStrikeFeatureGreater, 
+            VitalStrikeFeatureImproved,
+            LungeFeature, 
+            RagingBrutality, 
+            VitalStrikeFeature,
+            Improved_Initiative
         };
 
         private static readonly string[] FamilyGuids =

@@ -5,7 +5,7 @@ namespace FeatOrganizer.FeatFamilies.Families
     internal static class DefenseFeatFamily
     {
         // --- Selection meta ---
-        private const string SelectionGuid = "b1e7d3c2-48a9-4f0e-9b6a-2d4c7f8a5e31";
+        private const string SelectionGuid = "d4c1a7f0-9b2e-4f53-8a1e-2f6a3cb7e8d9";
         private const string SelectionInternal = "FF.DefenseFeats";
         private const string SelectionNameKey = "FF.DefenseFeats.Name";
         private const string SelectionName = "Defense Feats";
@@ -35,12 +35,14 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string LifeDominantSoul = "8f58b4029511b5345981ffaf1da5ea2e";
         private const string MurmursOfEarth = "94be54cd152d1c94396754de7bf0105f";
         private const string SteelSoul = "8bc16857824564d4e9400bbfcdd957fb";
+        private const string AcrobaticSpellcaster = "7ba4b4023a7748669098c479dd9e8de6";
 
         // --- Families (0..N) ---
         private const string ArmorFocusSelection = "76d4885a395976547a13c5d6bf95b482";
 
         private static readonly string[] MemberGuids =
         {
+            ArcaneArmorMastery,
             BlindFight,
             CombatExpertiseFeature,
             Diehard,
@@ -62,7 +64,7 @@ namespace FeatOrganizer.FeatFamilies.Families
             LifeDominantSoul,
             MurmursOfEarth,
             SteelSoul,
-            ArcaneArmorMastery
+            AcrobaticSpellcaster
         };
 
         private static readonly string[] FamilyGuids =
