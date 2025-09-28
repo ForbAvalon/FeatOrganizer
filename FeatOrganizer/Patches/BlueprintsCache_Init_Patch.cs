@@ -19,7 +19,7 @@ namespace FeatOrganizer.Patches
             try
             {
                 Log.Info("[CO][Init] Applying RangedFeatFamily...");
-                //RangedFeatFamily.Configure();
+                RangedFeatFamily.Configure();
                 MeleeFeatFamily.Configure();
                 Log.Info("[CO][Init] RangedFeatFamily applied.");
             }

@@ -1,4 +1,4 @@
-﻿namespace FeatOrganizer.FeatFamilies
+﻿/*namespace FeatOrganizer.FeatFamilies
 {
     internal static class InstallAllFamilies
     {
@@ -10,4 +10,4 @@
             // … las que vayas creando
         }
     }
-}
+}*/
