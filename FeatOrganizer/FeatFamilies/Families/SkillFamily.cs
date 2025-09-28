@@ -10,7 +10,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string SelectionNameKey = "FF.SkillFeats.Name";
         private const string SelectionName = "Skill Feats";
         private const string SelectionDescKey = "FF.SkillFeats.Desc";
-        private const string SelectionDesc = "A collection of skills.";
+        private const string SelectionDesc = "A collection of skills feats.";
 
         // --- Feats (0..N) ---
         private const string FastLearner = "7ad59ca648c14c0a92adec798d51eb6d";

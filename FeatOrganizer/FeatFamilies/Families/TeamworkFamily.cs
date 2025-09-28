@@ -25,6 +25,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string SiezeTheMoment = "1191ef3065e6f8e4f9fbe1b7e3c0f760";
         private const string TandemTrip = "d26eb8ab2aabd0e45a4d7eec0340bbce";
         private const string VolleyFireFeature = "c4b555225f565bb40a855c1bfeeff07e";
+        private const string SpellChain = "d8d641edc9a74a64809f56feff9495b6";
 
         // --- Families (0..N) ---
 
@@ -41,7 +42,8 @@ namespace FeatOrganizer.FeatFamilies.Families
             Outflank,
             SiezeTheMoment,
             TandemTrip,
-            VolleyFireFeature
+            VolleyFireFeature,
+            SpellChain
         };
 
         private static readonly string[] FamilyGuids =

@@ -23,6 +23,7 @@ namespace FeatOrganizer.Patches
                 MeleeFeatFamily.Configure();
                 SkillFeatFamily.Configure();
                 TeamworkFeatFamily.Configure();
+                MagicFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)
