@@ -24,10 +24,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string Disruptive = "f3ef866a9da642c4b9f7dcd76c3567fe";
 
         // --- Families (0..N) ---
-        private const string WeaponFocus = "1e1f627d26ad36f43bbd26cc2bf8ac7e";
-        private const string WeaponFocusGreater = "09c9e82965fb4334b984a1e9df3bd088";
-        private const string WeaponSpecialization = "31470b17e8446ae4ea0dacd6c5817d86";
-        private const string WeaponSpecializationGreater = "7cf5edc65e785a24f9cf93af987d66b3";
+
 
         private static readonly string[] MemberGuids =
         {
@@ -44,10 +41,6 @@ namespace FeatOrganizer.FeatFamilies.Families
 
         private static readonly string[] FamilyGuids =
         {
-            WeaponFocus,
-            WeaponFocusGreater,
-            WeaponSpecialization,
-            WeaponSpecializationGreater
         };
 
         public static void Configure()

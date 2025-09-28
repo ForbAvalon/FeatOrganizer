@@ -20,6 +20,8 @@ namespace FeatOrganizer.Patches
             {
                 Log.Info("[CO][Init] Applying FeatFamilies...");
                 RangedFeatFamily.Configure();
+                WeaponFeatFamily.Configure();
+                FeintFeatFamily.Configure();
                 MeleeFeatFamily.Configure();
                 SkillFeatFamily.Configure();
                 TeamworkFeatFamily.Configure();
