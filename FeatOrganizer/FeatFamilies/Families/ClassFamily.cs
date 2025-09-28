@@ -65,6 +65,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string ExtraPerformancePaladinMartyr = "639ce2b85a13404caa618f36748d7fa5";
         private const string ExtraPerformanceSkald = "15c78493a0ce471cb279e6363d702cc8";
         private const string LingeringPerformance = "17239b298065efc459cffe2220ecb559";
+        private const string DiscordantVoice = "49a72b24ad604be481ad73994e14a34b";
 
         //FavoredEnemy
         private const string FavoredEnemySpellcasting = "0226d84afe68462da8a392798f1225b8";
@@ -137,7 +138,8 @@ namespace FeatOrganizer.FeatFamilies.Families
             FavoredEnemySpellcasting,
             HarmonicSpell,
             CompanionBoon,
-            ExtraBane
+            ExtraBane,
+            DiscordantVoice
         };
 
         private static readonly string[] FamilyGuids =

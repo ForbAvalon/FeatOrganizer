@@ -24,8 +24,16 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string ShaitanEarthblastFeature = "204a749f60f443e29fbb9e8f6da0a14d";
         private const string StunningFist = "a29a582c3daa4c24bb0e991c596ccb28";
         private const string DragonFerocity = "2a681cb9fcaab664286cb36fff761245";
-            
-
+        private const string CraneStyleRiposteFeat = "59eb2a5507975244c893402d582bf77b";
+        private const string CraneStyleFeat = "0c17102f650d9044290922b0fad9132f";
+        private const string CraneStyleWingFeat = "af0aae1b973114f47a19ea532237b5fc";
+        private const string PummelingBully = "bdf58317985383540920c723db07aa3b";
+        private const string PummelingCharge = "c5a39c8f1a2d6824ca565e6c1e4075a5";
+        private const string ShaitanSkinFeature = "60d57680c3f64539b72423b3dbcd38cd";
+        private const string ShaitanStyleFeature = "c5e2aa13b1b6470d8ec70a962ddabdbd";
+        private const string CrushingBlowFeature = "4153755355a0b9b4e956c9ca232c22cf";
+        private const string ElementalFistFeature = "5d7c3a3eed0546a598e3d2a1c7e0026a";
+        private const string PerfectStrikeFeature = "7477e2e0b72f4ce4fb674f4b21d5e81d";
 
         // --- Families (0..N) ---
         
@@ -42,7 +50,17 @@ namespace FeatOrganizer.FeatFamilies.Families
             SculptingTheRiver,
             ShaitanEarthblastFeature,
             StunningFist,
-            DragonFerocity
+            DragonFerocity,
+            CraneStyleRiposteFeat,
+            CraneStyleFeat,
+            CraneStyleWingFeat,
+            PummelingBully,
+            PummelingCharge,
+            ShaitanSkinFeature,
+            ShaitanStyleFeature,
+            CrushingBlowFeature,
+            ElementalFistFeature,
+            PerfectStrikeFeature
         };
 
         private static readonly string[] FamilyGuids =

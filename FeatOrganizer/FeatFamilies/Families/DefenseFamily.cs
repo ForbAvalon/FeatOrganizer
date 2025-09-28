@@ -39,6 +39,9 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string DuelingMastery = "c3a66c1bbd2fb65498b130802d5f183a";
         private const string DeflectArrows = "2c61fdbf242866f4e93c3e1477fb96b5";
         private const string FeatureWingsAngel = "d9bd0fde6deb2e44a93268f2dfb3e169";
+        private const string HistoryOfTerrors = "9e4c7d08f67f4496ba42c2cdb00609a7";
+        private const string Ironguts = "90f7164ce17840c68c1ceadcf5d10297";
+        private const string Ironhide = "07a8059e18fd42eea61567cb11365a9d";
 
         // --- Families (0..N) ---
         private const string ArmorFocusSelection = "76d4885a395976547a13c5d6bf95b482";
@@ -70,7 +73,10 @@ namespace FeatOrganizer.FeatFamilies.Families
             AcrobaticSpellcaster,
             DuelingMastery,
             DeflectArrows,
-            FeatureWingsAngel
+            FeatureWingsAngel,
+            HistoryOfTerrors,
+            Ironguts,
+            Ironhide
         };
 
         private static readonly string[] FamilyGuids =

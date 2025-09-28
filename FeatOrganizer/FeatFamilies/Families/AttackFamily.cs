@@ -21,6 +21,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string ShatterDefenses = "61a17ccbbb3d79445b0926347ec07577";
         private const string AccomplishedSneakAttacker = "9f0187869dc23744292c0e5bb364464e";
         private const string ArcaneStrikeFeature = "0ab2f21a922feee4dab116238e3150b4";
+        private const string Disruptive = "f3ef866a9da642c4b9f7dcd76c3567fe";
 
         // --- Families (0..N) ---
         private const string WeaponFocus = "1e1f627d26ad36f43bbd26cc2bf8ac7e";
@@ -37,7 +38,8 @@ namespace FeatOrganizer.FeatFamilies.Families
             PenetratingStrike,
             ShatterDefenses,
             AccomplishedSneakAttacker,
-            ArcaneStrikeFeature
+            ArcaneStrikeFeature,
+            Disruptive
         };
 
         private static readonly string[] FamilyGuids =
