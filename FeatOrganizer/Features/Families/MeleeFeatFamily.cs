@@ -10,52 +10,63 @@ using System.Linq;
 
 namespace FeatOrganizer.Features.Families
 {
-    internal static class RangedFeatFamily
+    internal static class MeleeFeatFamily
     {
-        private const string FeatsSelectionGuid = "7a3e5b3a-5f6b-4b9e-9f9b-1b2a0a3f9e71";
-        private const string SelectionInternalName = "FF.RangedFeats";
-        private const string SelectionNameKey = "FF.RangedFeats.Name";
-        private const string SelectionDescKey = "FF.RangedFeats.Desc";
+        private const string FeatsSelectionGuid = "f2a1c3d4-7b89-4e2f-9a5b-3c1d2e4f6a78";
+        private const string SelectionInternalName = "FF.MeleeFeat";
+        private const string SelectionNameKey = "FF.MeleeFeat.Name";
+        private const string SelectionDescKey = "FF.MeleeFeat.Desc";
 
         // Feats
-        private const string PointBlankShotGuid = "0da0c194d6e1d43419eb8d990b28e0ab";
-        private const string ThrowAnything = "65c538dcfd91930489ad3ab18ad9204b";
-        private const string DeadlyAimFeature = "f47df34d53f8c904f9981a3ee8e84892";
-        private const string RapidShotFeature = "9c928dc570bb9e54a9649b3ebfe47a41";
-        private const string ImprovedPreciseShot = "46f970a6b9b5d2346b10892673fe6e74";
-        private const string Manyshot = "adf54af2a681792489826f7fd1b62889";
-        private const string ClusteredShots = "f7de245bb20f12f47864c7cb8b1d1abb";
-        private const string FocusedShot = "f979ed68d1e74d21962edc66f0a1d169";
-        private const string SnapShotGreater = "67b09c86234cecc4c8309f22f7d33973";
-        private const string SnapShotImproved = "c3453e7e215c1f149b938be27ac754c6";
-        private const string SnapShot = "7115a6c08bd101247b70d72a4ff99453";
-        private const string PreciseShot = "8f3d1e6b4be006f4d896081f2f889665";
+        private const string PowerAttackFeature = "9972f33f977fc724c838e59641b2fca5";
+        private const string WeaponFinesse = "90e54424d682d104ab36436bd527af09";
+        private const string CombatReflexes = "0f8939ae6f220984e8fb568abbdfba95";
+        private const string CleavingFinish = "59bd93899149fa44687ff4121389b3a9";
+        private const string ImprovedCleavingFinish = "ffa1b373190af4f4db7a5501904a1983";
+        private const string PiranhaStrikeFeature = "6a556375036ac8b4ebd80e74d308d108";
+        private const string CleaveFeature = "d809b6c4ff2aaff4fa70d712a70f7d7b";
+        private const string FuriousFocus = "f09b89812cc94b89a09069671002b899";
+        private const string GreatCleaveFeature = "cc9c862ef2e03af4f89be5088851ea35";
+        private const string VitalStrikeFeatureGreater = "e2d1fa11f6b095e4fb2fd1dcf5e36eb3";
+        private const string VitalStrikeFeatureImproved = "52913092cd018da47845f36e6fbe240f";
+        private const string LungeFeature = "d41d5bd9a775d7245929256d58a3e03e";
+        private const string RagingBrutality = "c002fad1506842abb2da5bcedacc358e";
+        private const string VitalStrikeFeature = "14a1fc1356df9f146900e1e42142fc9d";
 
         // Families
-        private const string PointBlankMaster = "05a3b543b0a0a0346a5061e90f293f0b";
+        private const string FencingGrace = "47b352ea0f73c354aba777945760b441";
+        private const string SlashingGrace = "697d64669eb2c0543abb9c9b07998a38";
 
         private static readonly string[] MemberGuids =
         {
-            PointBlankShotGuid, 
-            ThrowAnything, 
-            DeadlyAimFeature, 
-            RapidShotFeature,
-            ImprovedPreciseShot, 
-            Manyshot, 
-            ClusteredShots, 
-            FocusedShot,
-            SnapShotGreater, 
-            SnapShotImproved, 
-            SnapShot, 
-            PreciseShot
+            PowerAttackFeature,
+            WeaponFinesse,
+            CombatReflexes,
+            CleavingFinish,
+            ImprovedCleavingFinish,
+            PiranhaStrikeFeature,
+            CleaveFeature,
+            FuriousFocus,
+            GreatCleaveFeature,
+            VitalStrikeFeatureGreater,
+            VitalStrikeFeatureImproved,
+            LungeFeature,
+            RagingBrutality,
+            VitalStrikeFeature
+        };
+
+        private static readonly string[] FamilyGuids =
+        {
+            FencingGrace,
+            SlashingGrace
         };
 
         public static void Configure()
         {
-            var name = LocalizationTool.CreateString(SelectionNameKey, "Ranged Feats", tagEncyclopediaEntries: false);
-            var desc = LocalizationTool.CreateString(SelectionDescKey, "A collection of ranged combat feats.", tagEncyclopediaEntries: false);
+            var name = LocalizationTool.CreateString(SelectionNameKey, "Melee Feats", tagEncyclopediaEntries: false);
+            var desc = LocalizationTool.CreateString(SelectionDescKey, "A collection of melee combat feats.", tagEncyclopediaEntries: false);
 
-            var pbsFeat = BlueprintTool.Get<BlueprintFeature>(PointBlankShotGuid);
+            var pbsFeat = BlueprintTool.Get<BlueprintFeature>(PowerAttackFeature);
 
             var memberRefs = MemberGuids
                 .Select(g => BlueprintTool.GetRef<BlueprintFeatureReference>(g))
@@ -79,7 +90,7 @@ namespace FeatOrganizer.Features.Families
                 .SetDisplayName(name)
                 .SetDescription(desc)
                 .SetIsClassFeature(true)
-                .SetGroups(FeatureGroup.Feat) 
+                .SetGroups(FeatureGroup.Feat) // solo feats comunes
                 .SetIcon(pbsFeat.Icon)
                 .AddComponent<FeatureTagsComponent>(c => { c.FeatureTags = aggregatedTags; })
                 .AddComponent<FeatOrganizer.Components.AggregateMemberRecommendations>(c =>
@@ -90,8 +101,12 @@ namespace FeatOrganizer.Features.Families
             foreach (var r in memberRefs)
                 familyCfg = familyCfg.AddToAllFeatures(r);
 
-            var pbmRef = BlueprintTool.GetRef<BlueprintFeatureReference>(PointBlankMaster);
-            familyCfg = familyCfg.AddToAllFeatures(pbmRef);
+            var familyRefs = FamilyGuids
+                .Select(g => BlueprintTool.GetRef<BlueprintFeatureReference>(g))
+                .ToArray();
+
+            foreach (var fr in familyRefs)
+                familyCfg = familyCfg.AddToAllFeatures(fr);
 
             var family = familyCfg.Configure();
 
