@@ -26,11 +26,12 @@ namespace FeatOrganizer.Patches
                 MagicFeatFamily.Configure();
                 DefenseFeatFamily.Configure();
                 UnarmedFeatFamily.Configure();
+                MetamagicFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)
             {
-                Log.Error("[CO][Init] Error applying RangedFeatFamily", ex);
+                Log.Error("[CO][Init] Error applying FeatFamily", ex);
             }
         }
     }
