@@ -1,6 +1,6 @@
-﻿using FeatOrganizer.Features.Families; // para FamilyBuilder
+﻿using FeatOrganizer.Features.Families;
 
-namespace FeatOrganizer.FeatFamilies
+namespace FeatOrganizer.FeatFamilies.Families
 {
     internal static class SkillFeatFamily
     {
@@ -29,7 +29,7 @@ namespace FeatOrganizer.FeatFamilies
         private const string NaturalCharmer = "0ebbc4a0ecf03844384a177e9f1f9a11";
         private const string StonyStep = "c542b083d72f19944a4c6bdf640fc099";
 
-        // --- Familias anidadas (0..N) ---
+        // --- Families (0..N) ---
         private const string SkillFocusSelection = "c9629ef9eebb88b479b2fbc5e836656a";
 
 

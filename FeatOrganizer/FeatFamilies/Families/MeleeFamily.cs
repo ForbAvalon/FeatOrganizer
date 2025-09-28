@@ -28,7 +28,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string RagingBrutality = "c002fad1506842abb2da5bcedacc358e";
         private const string VitalStrikeFeature = "14a1fc1356df9f146900e1e42142fc9d";
 
-        // --- Familias anidadas (0..N) ---
+        // --- Families (0..N) ---
         private const string FencingGrace = "47b352ea0f73c354aba777945760b441";
         private const string SlashingGrace = "697d64669eb2c0543abb9c9b07998a38";
 

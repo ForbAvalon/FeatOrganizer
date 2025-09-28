@@ -25,6 +25,7 @@ namespace FeatOrganizer.Features.Families
             internal string[] NestedFamilies; // 0..N
             internal bool PlaceInBasic = true;
             internal bool RemoveMembersFromBasic = true;
+            internal bool RemoveNestedFromBasic = true;
         }
 
         internal static BlueprintFeatureSelection Build(Spec spec)
@@ -95,9 +96,19 @@ namespace FeatOrganizer.Features.Families
                     ? new List<BlueprintFeatureReference>(basic.m_AllFeatures)
                     : new List<BlueprintFeatureReference>();
 
-                if (spec.RemoveMembersFromBasic && (spec.MemberFeats?.Length > 0))
+                // --- Quitar miembros (feats) y/o familias anidadas, según flags ---
+                var remove = new HashSet<BlueprintGuid>();
+                if (spec.RemoveMembersFromBasic && spec.MemberFeats != null && spec.MemberFeats.Length > 0)
                 {
-                    var remove = new HashSet<BlueprintGuid>(spec.MemberFeats.Select(BlueprintGuid.Parse));
+                    foreach (var id in spec.MemberFeats) remove.Add(BlueprintGuid.Parse(id));
+                }
+                if (spec.RemoveNestedFromBasic && spec.NestedFamilies != null && spec.NestedFamilies.Length > 0)
+                {
+                    foreach (var id in spec.NestedFamilies) remove.Add(BlueprintGuid.Parse(id));
+                }
+
+                if (remove.Count > 0)
+                {
                     features.RemoveAll(r =>
                         r == null
                      || remove.Contains(r.deserializedGuid)
@@ -105,6 +116,7 @@ namespace FeatOrganizer.Features.Families
                      || (r.Get() != null && remove.Contains(r.Get().AssetGuid)));
                 }
 
+                // Añade la carpeta si no está
                 var familyRef = family.ToReference<BlueprintFeatureReference>();
                 bool hasFamily = features.Exists(r =>
                     r != null && (
@@ -115,6 +127,7 @@ namespace FeatOrganizer.Features.Families
                 if (!hasFamily) features.Add(familyRef);
                 basic.m_AllFeatures = features.ToArray();
             }
+
 
             return family;
         }

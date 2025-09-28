@@ -26,7 +26,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string SnapShot = "7115a6c08bd101247b70d72a4ff99453";
         private const string PreciseShot = "8f3d1e6b4be006f4d896081f2f889665";
 
-        // --- Familias anidadas (0..N) ---
+        // --- Families (0..N) ---
         private const string PointBlankMaster = "05a3b543b0a0a0346a5061e90f293f0b";
 
         private static readonly string[] MemberGuids =

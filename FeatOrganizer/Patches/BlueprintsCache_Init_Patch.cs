@@ -1,5 +1,4 @@
-﻿using FeatOrganizer.FeatFamilies;
-using FeatOrganizer.FeatFamilies.Families;
+﻿using FeatOrganizer.FeatFamilies.Families;
 using FeatOrganizer.Features.Families;
 using FeatOrganizer.Utils;
 using HarmonyLib;
@@ -19,11 +18,12 @@ namespace FeatOrganizer.Patches
 
             try
             {
-                Log.Info("[CO][Init] Applying RangedFeatFamily...");
+                Log.Info("[CO][Init] Applying FeatFamilies...");
                 RangedFeatFamily.Configure();
                 MeleeFeatFamily.Configure();
                 SkillFeatFamily.Configure();
-                Log.Info("[CO][Init] RangedFeatFamily applied.");
+                TeamworkFeatFamily.Configure();
+                Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)
             {
