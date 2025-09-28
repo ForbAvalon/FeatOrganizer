@@ -30,6 +30,7 @@ namespace FeatOrganizer.Patches
                 MountedFeatFamily.Configure();
                 ShieldFeatFamily.Configure();
                 ClassRageFeatFamily.Configure();
+                ClassPaladinFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }
             catch (System.Exception ex)
