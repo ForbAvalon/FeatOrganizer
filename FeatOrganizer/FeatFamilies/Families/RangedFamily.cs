@@ -1,6 +1,6 @@
 ﻿using FeatOrganizer.Features.Families; // para FamilyBuilder
 
-namespace FeatOrganizer.FeatFamilies
+namespace FeatOrganizer.FeatFamilies.Families
 {
     internal static class RangedFeatFamily
     {
@@ -10,7 +10,7 @@ namespace FeatOrganizer.FeatFamilies
         private const string SelectionNameKey = "FF.RangedFeats.Name";
         private const string SelectionName = "Ranged Feats";
         private const string SelectionDescKey = "FF.RangedFeats.Desc";
-        private const string SelectionDesc = "A collection of melee combat feats.";
+        private const string SelectionDesc = "A collection of ranged combat feats.";
 
         // --- Feats (0..N) ---
         private const string PointBlankShotGuid = "0da0c194d6e1d43419eb8d990b28e0ab";

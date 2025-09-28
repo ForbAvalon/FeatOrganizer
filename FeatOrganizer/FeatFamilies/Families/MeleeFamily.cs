@@ -1,6 +1,6 @@
 ﻿using FeatOrganizer.Features.Families; // para FamilyBuilder
 
-namespace FeatOrganizer.FeatFamilies
+namespace FeatOrganizer.FeatFamilies.Families
 {
     internal static class MeleeFeatFamily
     {

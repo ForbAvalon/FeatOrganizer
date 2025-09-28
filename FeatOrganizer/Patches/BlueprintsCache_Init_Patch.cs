@@ -1,8 +1,9 @@
-﻿using HarmonyLib;
-using Kingmaker.Blueprints.JsonSystem;
+﻿using FeatOrganizer.FeatFamilies;
+using FeatOrganizer.FeatFamilies.Families;
 using FeatOrganizer.Features.Families;
 using FeatOrganizer.Utils;
-using FeatOrganizer.FeatFamilies;
+using HarmonyLib;
+using Kingmaker.Blueprints.JsonSystem;
 
 namespace FeatOrganizer.Patches
 {
@@ -21,6 +22,7 @@ namespace FeatOrganizer.Patches
                 Log.Info("[CO][Init] Applying RangedFeatFamily...");
                 RangedFeatFamily.Configure();
                 MeleeFeatFamily.Configure();
+                SkillFeatFamily.Configure();
                 Log.Info("[CO][Init] RangedFeatFamily applied.");
             }
             catch (System.Exception ex)
