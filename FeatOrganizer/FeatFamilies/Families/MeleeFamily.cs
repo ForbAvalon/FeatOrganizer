@@ -30,6 +30,8 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string Razortusk = "86af486a0d92427280c46127a216c85a";
         private const string CornugonSmash = "ceea53555d83f2547ae5fc47e0399e14";
         private const string VulpinePounce = "cd258f1bce80ef54580f6b236c82608c";
+        private const string BloodDrinker = "96983d50aca1d214e8adc57a39b41c25";
+        private const string BloodFeaster = "e78b4b66db382aa4199f5f2b7da6e5ea";
 
         // --- Families (0..N) ---
         private const string FencingGrace = "47b352ea0f73c354aba777945760b441";
@@ -53,7 +55,9 @@ namespace FeatOrganizer.FeatFamilies.Families
             Improved_Initiative,
             Razortusk,
             CornugonSmash,
-            VulpinePounce
+            VulpinePounce,
+            BloodDrinker,
+            BloodFeaster
         };
 
         private static readonly string[] FamilyGuids =

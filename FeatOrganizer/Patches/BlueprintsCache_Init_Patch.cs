@@ -31,6 +31,7 @@ namespace FeatOrganizer.Patches
                 ShieldFeatFamily.Configure();
                 ProficiencyFeatFamily.Configure();
                 AttackFeatFamily.Configure();
+                CriticalFeatFamily.Configure();
                 ClassRageFeatFamily.Configure();
                 ClassPaladinFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
