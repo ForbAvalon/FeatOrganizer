@@ -77,7 +77,11 @@ namespace FeatOrganizer.Features.Families
                 .SetIsClassFeature(true)
                 .SetGroups(FeatureGroup.Feat) // solo feats comunes
                 .SetIcon(pbsFeat.Icon)
-                .AddComponent<FeatureTagsComponent>(c => { c.FeatureTags = aggregatedTags; });
+                .AddComponent<FeatureTagsComponent>(c => { c.FeatureTags = aggregatedTags; })
+                .AddComponent<FeatOrganizer.Components.AggregateMemberRecommendations>(c =>
+                {
+                    c.Members = memberRefs;   // ← aquí “hereda” recomendaciones, pero solo de miembros elegibles y no aprendidos
+                });
 
             foreach (var r in memberRefs)
                 familyCfg = familyCfg.AddToAllFeatures(r);
