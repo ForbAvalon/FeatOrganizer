@@ -1,88 +1,108 @@
-﻿using System;
+﻿using FeatOrganizer.Components;
 using HarmonyLib;
-using UniRx;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Root.Strings;
-using Kingmaker.UnitLogic.Class.LevelUp;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.UI.MVVM._VM.CharGen.Phases.FeatureSelector;
-using FeatOrganizer.Components; // Tu componente AggregateMemberRecommendations
+using Kingmaker.UI.MVVM._VM.Other.NestedSelectionGroup;
+using Kingmaker.UnitLogic.Class.LevelUp;
+using Owlcat.Runtime.UI.Tooltips;
+using System.Collections.Generic;
+using UniRx;
 
 namespace FeatOrganizer.Patches
 {
-    /// <summary>
-    /// 1) Asegura que las carpetas de FeatOrganizer siempre reporten HasNesting = true,
-    ///    para que la UI permita expandir incluso cuando no haya hijos "elegibles".
-    /// </summary>
-    [HarmonyPatch(typeof(CharGenFeatureSelectorItemVM), "HasNesting", MethodType.Getter)]
-    internal static class Patch_OurFolder_HasNesting_True
+    [HarmonyPatch(typeof(NestedSelectionGroupEntityVM), "SetExpanded")]
+    internal static class Patch_AllowExpandForOurFolder_WithoutHasNesting
     {
-        static void Postfix(CharGenFeatureSelectorItemVM __instance, ref bool __result)
-        {
-            var bp = __instance?.Feature?.Feature as BlueprintFeatureBase;
-            if (bp == null) return;
+        private static readonly AccessTools.FieldRef<NestedSelectionGroupEntityVM, ReactiveProperty<bool>>
+            _expandedRef = AccessTools.FieldRefAccess<NestedSelectionGroupEntityVM, ReactiveProperty<bool>>("m_IsExpanded");
 
-            // Si es una de nuestras "carpetas", forzamos nesting
-            if (bp.GetComponent<AggregateMemberRecommendations>() != null)
-                __result = true;
+        static bool Prefix(NestedSelectionGroupEntityVM __instance, bool state)
+        {
+            if (__instance is CharGenFeatureSelectorItemVM item && IsOurFolderRoot(item))
+            {
+                var rp = _expandedRef(__instance);
+                if (rp != null) rp.Value = state; 
+                return false; 
+            }
+            return true;
+        }
+
+        private static bool IsOurFolderRoot(CharGenFeatureSelectorItemVM vm)
+        {
+            var root = vm;
+            while (root.Source is CharGenFeatureSelectorItemVM p) root = p;
+            var bp = root?.Feature?.Feature as BlueprintFeatureBase;
+            return bp != null && bp.GetComponent<AggregateMemberRecommendations>() != null;
         }
     }
 
-    /// <summary>
-    /// 2) Evita que se oculten feats "Forbidden" (no elegibles) cuando están dentro de nuestras carpetas.
-    ///    Así pueden verse y consultarse sus requisitos (tooltips, etiquetas).
-    /// </summary>
-    [HarmonyPatch(typeof(CharGenFeatureSelectorItemVM), "ShouldBeHidden")]
-    internal static class Patch_OurFolder_ShowForbiddenChildren
+    [HarmonyPatch(typeof(CharGenFeatureSelectorItemVM), nameof(CharGenFeatureSelectorItemVM.ExtractNestedEntities))]
+    internal static class Patch_OurFolder_FakeChildren_WhenNoSelectionState
     {
-        // FieldRef a m_FeatureParent para subir hasta la raíz del subárbol
-        private static readonly AccessTools.FieldRef<CharGenFeatureSelectorItemVM, CharGenFeatureSelectorItemVM>
-            _parentRef = AccessTools.FieldRefAccess<CharGenFeatureSelectorItemVM, CharGenFeatureSelectorItemVM>("m_FeatureParent");
+        private static readonly AccessTools.FieldRef<CharGenFeatureSelectorItemVM, LevelUpController>
+            _levelUpRef = AccessTools.FieldRefAccess<CharGenFeatureSelectorItemVM, LevelUpController>("m_LevelUpController");
 
-        static void Postfix(CharGenFeatureSelectorItemVM __instance, ref bool __result)
+        private static readonly AccessTools.FieldRef<CharGenFeatureSelectorItemVM, ReactiveProperty<TooltipBaseTemplate>>
+            _tooltipRef = AccessTools.FieldRefAccess<CharGenFeatureSelectorItemVM, ReactiveProperty<TooltipBaseTemplate>>("m_TooltipTemplate");
+
+        private static readonly AccessTools.FieldRef<CharGenFeatureSelectorItemVM, BoolReactiveProperty>
+            _canDropRef = AccessTools.FieldRefAccess<CharGenFeatureSelectorItemVM, BoolReactiveProperty>("m_CanDropLevelupPlan");
+
+        static void Postfix(CharGenFeatureSelectorItemVM __instance, ref List<NestedSelectionGroupEntityVM> __result)
         {
-            // Si YA es visible, no tocamos nada
-            if (!__result) return;
+            if (__result != null) return;
 
-            // Si este item está bajo una carpeta nuestra, no lo ocultes
-            if (IsUnderOurFolder(__instance))
+            var folderBp = __instance?.Feature?.Feature as BlueprintFeatureBase;
+            var comp = folderBp?.GetComponent<AggregateMemberRecommendations>();
+            if (comp == null) return; 
+
+            var list = new List<NestedSelectionGroupEntityVM>();
+            var levelUp = _levelUpRef(__instance);
+            var tooltipProp = _tooltipRef(__instance);
+            var canDrop = _canDropRef(__instance);
+
+            foreach (var mRef in comp.Members)
             {
-                __result = false;
+                var feat = mRef?.Get();
+                if (feat == null) continue;
 
-                // Aclarar estado visual: mostrar que está bloqueado por requisitos
-                __instance.SelectState = FeatureSelectionViewState.SelectState.Forbidden;
-                if (__instance.NotAvailableLabel != null)
-                    __instance.NotAvailableLabel.Value = UIStrings.Instance.Tooltips.Prerequisites;
-
-                // Asegura que se trate como "mostrable" en la lista aunque no sea seleccionable
-                __instance.SetAvailableState(true);
-            }
-        }
-
-        private static bool IsUnderOurFolder(CharGenFeatureSelectorItemVM vm)
-        {
-            if (vm == null) return false;
-
-            // Subimos al "root" del bloque anidado
-            var root = vm;
-            while (true)
-            {
-                var p = GetParent(root);
-                if (p == null) break;
-                root = p;
+                var item = new SimpleFeatureSelectionItem(feat);
+                var child = new CharGenFeatureSelectorItemVM(levelUp, item, __instance, tooltipProp, canDrop);
+                list.Add(child);
             }
 
-            var bp = root?.Feature?.Feature as BlueprintFeatureBase;
-            if (bp == null) return false;
+            __result = list;
+        }
+    }
 
-            // Detectamos carpeta propia por el componente de FeatOrganizer
-            return bp.GetComponent<AggregateMemberRecommendations>() != null;
+    internal sealed class SimpleFeatureSelectionItem : IFeatureSelectionItem
+    {
+        public SimpleFeatureSelectionItem(BlueprintFeature feature)
+        {
+            Feature = feature;
+            Name = feature?.Name ?? string.Empty;
+            Description = feature?.Description ?? string.Empty;
+            NameForAcronym = feature?.Name ?? string.Empty;
+            Icon = feature?.Icon;
+            Param = null;
         }
 
-        private static CharGenFeatureSelectorItemVM GetParent(CharGenFeatureSelectorItemVM vm)
+        public BlueprintFeature Feature { get; }
+        public FeatureParam Param { get; }
+
+        public string Name { get; }
+        public string Description { get; }
+        public string NameForAcronym { get; }
+        public UnityEngine.Sprite Icon { get; }
+
+        public bool IsSame(IFeatureSelectionItem other)
         {
-            try { return _parentRef(vm); }
-            catch { return null; }
+            if (other == null) return false;
+            if (!ReferenceEquals(Feature, other.Feature)) return false;
+            if (Param == null && other.Param == null) return true;
+            return ReferenceEquals(Param, other.Param);
         }
     }
 }

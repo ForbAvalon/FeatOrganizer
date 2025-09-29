@@ -1,6 +1,4 @@
-﻿using FeatOrganizer.Features.Families;
-
-namespace FeatOrganizer.FeatFamilies.Families
+﻿namespace FeatOrganizer.FeatFamilies.Families
 {
     internal static class TeamworkFeatFamily
     {

@@ -1,5 +1,4 @@
-﻿using FeatOrganizer.Features.Families;
-using Kingmaker.Designers.Mechanics.Buffs;
+﻿using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Mechanics.Components;
 
 namespace FeatOrganizer.FeatFamilies.Families

@@ -10,14 +10,12 @@ using Kingmaker.UnitLogic.Class.LevelUp;
 
 namespace FeatOrganizer.Components
 {
-    /// Marca la carpeta Good si (y solo si) tiene ≥1 hijo visible,
-    /// en el pool actual (por grupos públicos), elegible ahora y recomendado por el core.
+
     [Serializable]
     public class AggregateMemberRecommendations : LevelUpRecommendationComponent
     {
         public BlueprintFeatureReference[] Members = Array.Empty<BlueprintFeatureReference>();
 
-        // ---------- Cachés (0 reflexión) ----------
         private static readonly ConditionalWeakTable<BlueprintFeatureSelection, FeatureGroup[]> SelGroupsCWT
             = new ConditionalWeakTable<BlueprintFeatureSelection, FeatureGroup[]>();
 
@@ -30,9 +28,8 @@ namespace FeatOrganizer.Components
         private static readonly ConditionalWeakTable<LevelUpState, Dictionary<BlueprintFeature, bool>> PrereqCWT
             = new ConditionalWeakTable<LevelUpState, Dictionary<BlueprintFeature, bool>>();
 
-        // Resueltos y preindexados (por instancia del componente)
-        [NonSerialized] private BlueprintFeature[] _features; // Members resueltos
-        [NonSerialized] private Dictionary<FeatureGroup, List<BlueprintFeature>> _byGroup; // índice rápido por grupo
+        [NonSerialized] private BlueprintFeature[] _features;
+        [NonSerialized] private Dictionary<FeatureGroup, List<BlueprintFeature>> _byGroup;
         [NonSerialized] private bool _initialized;
 
         public override RecommendationPriority GetPriority(LevelUpState state)
@@ -40,13 +37,11 @@ namespace FeatOrganizer.Components
             if (state == null || state.Unit == null)
                 return RecommendationPriority.Same;
 
-            // Inicialización perezosa (sin reflexión)
             EnsureInitialized();
 
             if (_features == null || _features.Length == 0)
                 return RecommendationPriority.Same;
 
-            // Selección visible/actual (la última)
             FeatureSelectionState evalSel = null;
             var selCount = state.Selections != null ? state.Selections.Count : 0;
             if (selCount > 0)
@@ -60,8 +55,6 @@ namespace FeatOrganizer.Components
             if (selGroups == null || selGroups.Length == 0)
                 return RecommendationPriority.Same;
 
-            // Recolectar candidatos por grupos de la selección (evita recorrer todos los Members)
-            // Usamos un set para evitar duplicados si un feat está en varios grupos.
             var candidates = Pool<HashSet<BlueprintFeature>>.Get();
             try
             {
@@ -78,20 +71,16 @@ namespace FeatOrganizer.Components
                 if (candidates.Count == 0)
                     return RecommendationPriority.Same;
 
-                // Cachés por LevelUpState
                 var coreMap = CoreRecCWT.GetValue(state, _ => new Dictionary<BlueprintFeature, int>(64));
                 var prereqMap = PrereqCWT.GetValue(state, _ => new Dictionary<BlueprintFeature, bool>(64));
 
-                // Evaluación de candidatos
                 foreach (var feat in candidates)
                 {
                     if (feat == null) continue;
 
-                    // Oculto / ya conocido
                     if (feat.HideInUI || state.Unit.HasFact(feat))
                         continue;
 
-                    // Prereqs con caché
                     bool ok;
                     if (!prereqMap.TryGetValue(feat, out ok))
                     {
@@ -101,11 +90,9 @@ namespace FeatOrganizer.Components
                     if (!ok)
                         continue;
 
-                    // Filtro rápido: ¿tiene algún componente de recomendación?
                     if (!MayHaveCoreRecommendation(feat))
                         continue;
 
-                    // Core recommendation con caché
                     int core;
                     if (!coreMap.TryGetValue(feat, out core))
                     {
@@ -127,14 +114,12 @@ namespace FeatOrganizer.Components
             return RecommendationPriority.Same;
         }
 
-        // ---------- Init / helpers ----------
 
         private void EnsureInitialized()
         {
             if (_initialized) return;
             _initialized = true;
 
-            // Resolver una vez las refs -> features
             if (Members == null || Members.Length == 0)
             {
                 _features = Array.Empty<BlueprintFeature>();
@@ -156,7 +141,6 @@ namespace FeatOrganizer.Components
                 return;
             }
 
-            // Construir índice por grupo para filtrar rápido por selección
             _byGroup = new Dictionary<FeatureGroup, List<BlueprintFeature>>(8);
             for (int i = 0; i < _features.Length; i++)
             {
@@ -192,7 +176,6 @@ namespace FeatOrganizer.Components
             }
         }
 
-        /// Rápido: si el feat no tiene componentes de recomendación, casi seguro que GetRecommendationPriority devolverá 0.
         private static bool MayHaveCoreRecommendation(BlueprintFeature feat)
         {
             var comps = feat.ComponentsArray;
@@ -208,9 +191,6 @@ namespace FeatOrganizer.Components
 
         private static FeatureGroup[] GetSelectionGroupsPublic(BlueprintFeatureSelection bfs)
         {
-            // Usamos solo propiedades públicas/sin reflexión
-            // bfs.Groups puede ser null; Group/Group2 pueden existir en algunos builds.
-            // Reunimos y eliminamos duplicados sin LINQ.
             var tmp = new List<FeatureGroup>(4);
 
             var groups = bfs.Groups;
@@ -257,7 +237,6 @@ namespace FeatOrganizer.Components
             return arr ?? Array.Empty<FeatureGroup>();
         }
 
-        // ---------- Pool simple para sets/listas temporales ----------
         private static class Pool<T> where T : class, new()
         {
             private static readonly Stack<T> _stack = new Stack<T>(8);

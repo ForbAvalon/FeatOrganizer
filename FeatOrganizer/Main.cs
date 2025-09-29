@@ -14,10 +14,8 @@ namespace FeatOrganizer
         private static UnityModManager.ModEntry _mod;
         private static bool _enabled;
 
-        // Guardamos los IDisposable devueltos por EventBus.Subscribe
         private static readonly List<IDisposable> _busSubs = new List<IDisposable>();
 
-        // ---------- UMM entry ----------
         static bool Load(UnityModManager.ModEntry entry)
         {
             _mod = entry;
@@ -27,7 +25,6 @@ namespace FeatOrganizer
             return true;
         }
 
-        // ---------- Toggle ----------
         private static bool OnToggle(UnityModManager.ModEntry entry, bool value)
         {
             if (_enabled == value) return true;
@@ -37,7 +34,6 @@ namespace FeatOrganizer
                 _enabled = value;
                 if (value)
                 {
-                    // 1) Aplicar parches
                     _harmony = new Harmony(HarmonyId);
                     _harmony.PatchAll(typeof(Main).Assembly);
 
@@ -45,10 +41,8 @@ namespace FeatOrganizer
                 }
                 else
                 {
-                    // 1) Desuscribir handlers
                     UnsubscribeHandlers();
 
-                    // 2) Retirar parches
                     if (_harmony != null) _harmony.UnpatchAll(HarmonyId);
                     _harmony = null;
 
@@ -63,7 +57,6 @@ namespace FeatOrganizer
             }
         }
 
-        // ---------- Unload ----------
         private static bool OnUnload(UnityModManager.ModEntry entry)
         {
             try

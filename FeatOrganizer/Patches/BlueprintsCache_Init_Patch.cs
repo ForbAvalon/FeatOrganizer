@@ -1,5 +1,4 @@
 ﻿using FeatOrganizer.FeatFamilies.Families;
-using FeatOrganizer.Features.Families;
 using FeatOrganizer.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;

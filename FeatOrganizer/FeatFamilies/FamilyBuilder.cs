@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace FeatOrganizer.Features.Families
+namespace FeatOrganizer.FeatFamilies
 {
     internal static class FamilyBuilder
     {
@@ -21,8 +21,8 @@ namespace FeatOrganizer.Features.Families
             internal string Name;
             internal string DescKey;
             internal string Desc;
-            internal string[] MemberFeats;    // 0..N
-            internal string[] NestedFamilies; // 0..N
+            internal string[] MemberFeats;    
+            internal string[] NestedFamilies; 
             internal bool PlaceInBasic = true;
             internal bool RemoveMembersFromBasic = true;
             internal bool RemoveNestedFromBasic = true;
@@ -30,11 +30,9 @@ namespace FeatOrganizer.Features.Families
 
         internal static BlueprintFeatureSelection Build(Spec spec)
         {
-            // Localización
             var name = LocalizationTool.CreateString(spec.NameKey, spec.Name, tagEncyclopediaEntries: false);
             var desc = LocalizationTool.CreateString(spec.DescKey, spec.Desc, tagEncyclopediaEntries: false);
 
-            // Icono: 1º feat con icono, si no 1ª familia con icono
             Sprite icon = null;
             foreach (var g in spec.MemberFeats ?? System.Array.Empty<string>())
             {
@@ -50,7 +48,6 @@ namespace FeatOrganizer.Features.Families
                 }
             }
 
-            // Tags agregados solo desde feats
             FeatureTag tags = FeatureTag.None;
             foreach (var g in spec.MemberFeats ?? System.Array.Empty<string>())
             {
@@ -60,7 +57,6 @@ namespace FeatOrganizer.Features.Families
                     tags |= c.FeatureTags;
             }
 
-            // Refs
             var memberRefs = (spec.MemberFeats ?? System.Array.Empty<string>())
                 .Select(g => BlueprintTool.GetRef<BlueprintFeatureReference>(g))
                 .Where(r => r != null).ToArray();
@@ -69,7 +65,6 @@ namespace FeatOrganizer.Features.Families
                 .Select(g => BlueprintTool.GetRef<BlueprintFeatureReference>(g))
                 .Where(r => r != null).ToArray();
 
-            // Configurador
             var cfg = FeatureSelectionConfigurator.New(spec.InternalName, spec.SelectionGuid)
                 .SetDisplayName(name)
                 .SetDescription(desc)
@@ -81,22 +76,20 @@ namespace FeatOrganizer.Features.Families
                 cfg = cfg.AddComponent<FeatureTagsComponent>(c => c.FeatureTags = tags);
 
             if (memberRefs.Length > 0)
-                cfg = cfg.AddComponent<FeatOrganizer.Components.AggregateMemberRecommendations>(c => c.Members = memberRefs);
+                cfg = cfg.AddComponent<Components.AggregateMemberRecommendations>(c => c.Members = memberRefs);
 
             foreach (var r in memberRefs) cfg = cfg.AddToAllFeatures(r);
             foreach (var r in nestedRefs) cfg = cfg.AddToAllFeatures(r);
 
             var family = cfg.Configure();
 
-            // Colocación en BasicFeatSelection
             if (spec.PlaceInBasic)
             {
                 var basic = FeatureSelectionRefs.BasicFeatSelection.Reference.Get();
-                var features = (basic.m_AllFeatures != null)
+                var features = basic.m_AllFeatures != null
                     ? new List<BlueprintFeatureReference>(basic.m_AllFeatures)
                     : new List<BlueprintFeatureReference>();
 
-                // --- Quitar miembros (feats) y/o familias anidadas, según flags ---
                 var remove = new HashSet<BlueprintGuid>();
                 if (spec.RemoveMembersFromBasic && spec.MemberFeats != null && spec.MemberFeats.Length > 0)
                 {
@@ -113,21 +106,19 @@ namespace FeatOrganizer.Features.Families
                         r == null
                      || remove.Contains(r.deserializedGuid)
                      || remove.Contains(r.Guid)
-                     || (r.Get() != null && remove.Contains(r.Get().AssetGuid)));
+                     || r.Get() != null && remove.Contains(r.Get().AssetGuid));
                 }
 
-                // Añade la carpeta si no está
                 var familyRef = family.ToReference<BlueprintFeatureReference>();
                 bool hasFamily = features.Exists(r =>
                     r != null && (
                         r.deserializedGuid == family.AssetGuid
                      || r.Guid == family.AssetGuid
-                     || (r.Get() != null && r.Get().AssetGuid == family.AssetGuid)));
+                     || r.Get() != null && r.Get().AssetGuid == family.AssetGuid));
 
                 if (!hasFamily) features.Add(familyRef);
                 basic.m_AllFeatures = features.ToArray();
             }
-
 
             return family;
         }

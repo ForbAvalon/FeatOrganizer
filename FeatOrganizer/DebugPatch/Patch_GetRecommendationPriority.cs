@@ -1,4 +1,4 @@
-﻿using FeatOrganizer.Utils;
+﻿/*using FeatOrganizer.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -8,7 +8,7 @@ using Kingmaker.UnitLogic.Class.LevelUp;
 using System;
 using System.Linq;
 
-namespace FeatOrganizer.DebugPatches
+namespace FeatOrganizer.DebugPatch
 {
     [HarmonyPatch(typeof(LevelUpRecommendationEx), nameof(LevelUpRecommendationEx.GetRecommendationPriority),
                   new Type[] { typeof(BlueprintScriptableObject), typeof(LevelUpState), typeof(FeatureParam) })]
@@ -35,10 +35,10 @@ namespace FeatOrganizer.DebugPatches
                     Log.Info($"[FO][CoreRec]   {c.GetType().Name} -> {p}");
                 }
             }
-            catch { /*swallow*/ }
+            catch {  }
         }
     }
 
     // Si usas parametrizados, parchea también:
     // static class Patch_GetParametrizedRecommendationPriority { ... } análogo
-}
+}*/
