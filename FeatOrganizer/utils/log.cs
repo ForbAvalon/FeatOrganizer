@@ -5,7 +5,7 @@ namespace FeatOrganizer.Utils
 {
     internal static class Log
     {
-        private const string Prefix = "[CombatOverhaul] ";
+        private const string Prefix = "[FeatOrganizer] ";
 
         public static void Info(string message)
         {

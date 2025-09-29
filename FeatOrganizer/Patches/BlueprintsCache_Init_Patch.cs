@@ -35,6 +35,7 @@ namespace FeatOrganizer.Patches
                 AttackFeatFamily.Configure();
                 CriticalFeatFamily.Configure();
                 ManeuverFeatFamily.Configure();
+                RaceFeatFamily.Configure();
                 ClassFeatFamily.Configure();
                 Log.Info("[CO][Init] FeatFamilies applied.");
             }

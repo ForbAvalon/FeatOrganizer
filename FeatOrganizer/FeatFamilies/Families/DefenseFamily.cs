@@ -32,16 +32,9 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string GreatFortitudeImproved = "f5db1cc7ad48d794f85252fa4a64157b";
         private const string IronWillImproved = "3ea2215150a1c8a4a9bfed9d9023903e";
         private const string LightningReflexesImproved = "1e813eb8159b67a459b1c975027866e5";
-        private const string LifeDominantSoul = "8f58b4029511b5345981ffaf1da5ea2e";
-        private const string MurmursOfEarth = "94be54cd152d1c94396754de7bf0105f";
-        private const string SteelSoul = "8bc16857824564d4e9400bbfcdd957fb";
         private const string AcrobaticSpellcaster = "7ba4b4023a7748669098c479dd9e8de6";
         private const string DuelingMastery = "c3a66c1bbd2fb65498b130802d5f183a";
         private const string DeflectArrows = "2c61fdbf242866f4e93c3e1477fb96b5";
-        private const string FeatureWingsAngel = "d9bd0fde6deb2e44a93268f2dfb3e169";
-        private const string HistoryOfTerrors = "9e4c7d08f67f4496ba42c2cdb00609a7";
-        private const string Ironguts = "90f7164ce17840c68c1ceadcf5d10297";
-        private const string Ironhide = "07a8059e18fd42eea61567cb11365a9d";
 
         // --- Families (0..N) ---
         private const string ArmorFocusSelection = "76d4885a395976547a13c5d6bf95b482";
@@ -67,16 +60,9 @@ namespace FeatOrganizer.FeatFamilies.Families
             GreatFortitudeImproved,
             IronWillImproved,
             LightningReflexesImproved,
-            LifeDominantSoul,
-            MurmursOfEarth,
-            SteelSoul,
             AcrobaticSpellcaster,
             DuelingMastery,
-            DeflectArrows,
-            FeatureWingsAngel,
-            HistoryOfTerrors,
-            Ironguts,
-            Ironhide
+            DeflectArrows
         };
 
         private static readonly string[] FamilyGuids =

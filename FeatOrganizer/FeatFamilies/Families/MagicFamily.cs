@@ -20,26 +20,18 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string DispelSynergy = "f3e3e29608ba07844ab3cafc4c8e4343";
         private const string SpellFocus = "16fa59cc9a72a6043b566b49184f53fe";
         private const string SpellPenetration = "ee7dc126939e4d9438357fbd5980d459";
-        private const string ElvenArcaneFocus = "f12795ec2c204d428738bbe1bfcad8fb";
         private const string AugmentSummoning = "38155ca9e4055bb48a89240a2055dcc3";
-        private const string ElvenSpirit = "191a6ee9ccf849f8b34d34ad93b7af06";
         private const string GreaterSpellPenetration = "1978c3f91cfbbc24b9c9b0d017f4beec";
-        private const string MagicalTail = "febb8fe9a2d142fb80c1be6b0b539d9d";
         private const string SuperiorSummoning = "0477936c0f74841498b5c8753a8062a3";
         private const string WarriorPriest = "b9bee4e4e15573546b76a8d942ce914b";
         private const string DispelFocus = "c39576f8842e4505b14aa918b3a36a0a";
         private const string GreaterDispelFocus = "d0cf79c8e0a44325b00dc8fa6ad37d7c";
-        private const string ElvenImprovedImmunities = "12a62aa4876a4c6b95e8acca7a6f8369";
-        private const string Shadowplay = "caba7e4dc9b14206bbf667814cc1cb90";
         private const string SpellSpecializationFirst = "f327a765a4353d04f872482ef3e48c35";
-        
-
 
         // --- Families (0..N) ---
         private const string GreaterElementalFocusSelection = "1c17446a3eb744f438488711b792ca4d";
         private const string ElementalFocusSelection_0 = "bb24cc01319528849b09a3ae8eec0b31";
         private const string SpellFocusGreater = "5b04b45b228461c43bad768eb0f7c7bf";
-        //private const string SpellSpecializationSelection = "fe67bc3b04f1cd542b4df6e28b6e0ff5";
 
 
         private static readonly string[] MemberGuids =
@@ -51,17 +43,12 @@ namespace FeatOrganizer.FeatFamilies.Families
             DispelSynergy,
             SpellFocus,
             SpellPenetration,
-            ElvenArcaneFocus,
             AugmentSummoning,
-            ElvenSpirit,
             GreaterSpellPenetration,
-            MagicalTail,
             SuperiorSummoning,
             WarriorPriest,
             DispelFocus,
             GreaterDispelFocus,
-            ElvenImprovedImmunities,
-            Shadowplay,
             SpellSpecializationFirst
         };
 
