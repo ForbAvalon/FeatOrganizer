@@ -21,6 +21,8 @@
         private const string WeaponFocusGreater = "09c9e82965fb4334b984a1e9df3bd088";
         private const string WeaponSpecialization = "31470b17e8446ae4ea0dacd6c5817d86";
         private const string WeaponSpecializationGreater = "7cf5edc65e785a24f9cf93af987d66b3";
+        private const string FencingGrace = "47b352ea0f73c354aba777945760b441";
+        private const string SlashingGrace = "697d64669eb2c0543abb9c9b07998a38";
 
         private static readonly string[] MemberGuids =
         {
@@ -36,7 +38,9 @@
             WeaponFocus,
             WeaponFocusGreater,
             WeaponSpecialization,
-            WeaponSpecializationGreater
+            WeaponSpecializationGreater,
+            FencingGrace,
+            SlashingGrace
         };
 
         public static void Configure()

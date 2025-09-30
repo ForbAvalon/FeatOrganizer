@@ -28,8 +28,7 @@
         private const string CornugonSmash = "ceea53555d83f2547ae5fc47e0399e14";
 
         // --- Families (0..N) ---
-        private const string FencingGrace = "47b352ea0f73c354aba777945760b441";
-        private const string SlashingGrace = "697d64669eb2c0543abb9c9b07998a38";
+
 
         private static readonly string[] MemberGuids =
         {
@@ -52,7 +51,6 @@
 
         private static readonly string[] FamilyGuids =
         {
-            FencingGrace, SlashingGrace
         };
 
         public static void Configure()
