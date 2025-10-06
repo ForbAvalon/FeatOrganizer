@@ -31,7 +31,6 @@
         private const string LightningReflexesImproved = "1e813eb8159b67a459b1c975027866e5";
         private const string AcrobaticSpellcaster = "7ba4b4023a7748669098c479dd9e8de6";
         private const string DuelingMastery = "c3a66c1bbd2fb65498b130802d5f183a";
-        private const string DeflectArrows = "2c61fdbf242866f4e93c3e1477fb96b5";
 
         // --- Families (0..N) ---
         private const string ArmorFocusSelection = "76d4885a395976547a13c5d6bf95b482";
@@ -58,7 +57,7 @@
             LightningReflexesImproved,
             AcrobaticSpellcaster,
             DuelingMastery,
-            DeflectArrows
+            
         };
 
         private static readonly string[] FamilyGuids =

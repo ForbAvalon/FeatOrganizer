@@ -1,4 +1,6 @@
-﻿namespace FeatOrganizer.FeatFamilies.Families
+﻿using Kingmaker.UnitLogic.FactLogic;
+
+namespace FeatOrganizer.FeatFamilies.Families
 {
     internal static class UnarmedFeatFamily
     {
@@ -32,9 +34,10 @@
         private const string CrushingBlowFeature = "4153755355a0b9b4e956c9ca232c22cf";
         private const string ElementalFistFeature = "5d7c3a3eed0546a598e3d2a1c7e0026a";
         private const string PerfectStrikeFeature = "7477e2e0b72f4ce4fb674f4b21d5e81d";
+        private const string DeflectArrows = "2c61fdbf242866f4e93c3e1477fb96b5";
 
         // --- Families (0..N) ---
-        
+
 
         private static readonly string[] MemberGuids =
         {
@@ -58,7 +61,8 @@
             ShaitanStyleFeature,
             CrushingBlowFeature,
             ElementalFistFeature,
-            PerfectStrikeFeature
+            PerfectStrikeFeature,
+            DeflectArrows
         };
 
         private static readonly string[] FamilyGuids =
