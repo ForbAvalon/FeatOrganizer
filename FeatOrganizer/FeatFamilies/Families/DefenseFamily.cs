@@ -23,7 +23,6 @@
         private const string Toughness = "d09b20029e9abfe4480b356c92095623";
         private const string ArcaneArmorTraining = "1a0298abacb6e0f45b7e28553e99e76c";
         private const string DefensiveCombatTraining = "479c7f3b0dba69a4bbcb43e101f3f7f9";
-        private const string CautiousFighter = "4a6fbe77a4a2ce24db0cd0b1e4d93db1";
         private const string Mobility = "2a6091b97ad940943b46262600eaeaeb";
         private const string BlindFightGreater = "80a50d9744a40ac4c96e2cc6451a6703";
         private const string BlindFightImproved = "4f1a78b02ac71bd4fa7d6e011d6f8ce0";
@@ -51,7 +50,6 @@
             Toughness,
             ArcaneArmorTraining,
             DefensiveCombatTraining,
-            CautiousFighter,
             Mobility,
             BlindFightGreater,
             BlindFightImproved,

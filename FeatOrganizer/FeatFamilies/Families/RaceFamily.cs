@@ -33,6 +33,7 @@
         private const string EchoesOfStone = "70d3ac68dad02074791f58c8ba09d42f";
         private const string NaturalCharmer = "0ebbc4a0ecf03844384a177e9f1f9a11";
         private const string StonyStep = "c542b083d72f19944a4c6bdf640fc099";
+        private const string CautiousFighter = "4a6fbe77a4a2ce24db0cd0b1e4d93db1";
 
         // --- Families (0..N) ---
 
@@ -60,7 +61,8 @@
             DIscerningEye,
             EchoesOfStone,
             NaturalCharmer,
-            StonyStep
+            StonyStep,
+            CautiousFighter
         };
 
         private static readonly string[] FamilyGuids =
