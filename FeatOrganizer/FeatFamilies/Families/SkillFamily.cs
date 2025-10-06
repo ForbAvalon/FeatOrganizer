@@ -14,7 +14,6 @@
         private const string Persuasive = "86d93a5891d299d4983bdc6ef3987afd";
         private const string Alertness = "1c04fe9a13a22bc499ffac03e6f79153";
         private const string BrewPotions = "c0f8c4e513eb493408b8070a1de93fc0";
-        private const string DazzlingDisplayFeature = "bcbd674ec70ff6f4894bb5f07b6f4095";
         private const string Deceitful = "231a37321e26551489503e4e1d99e681";
         private const string DeftHands = "ab5fbcd092c860d46a2e62d9dac272e8";
         private const string ScribingScrolls = "a8a385bf53ee3454593ce9054375a2ec";
@@ -30,7 +29,6 @@
             Persuasive,
             Alertness,
             BrewPotions,
-            DazzlingDisplayFeature,
             Deceitful,
             DeftHands,
             ScribingScrolls,

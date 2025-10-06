@@ -20,6 +20,7 @@
         private const string AccomplishedSneakAttacker = "9f0187869dc23744292c0e5bb364464e";
         private const string ArcaneStrikeFeature = "0ab2f21a922feee4dab116238e3150b4";
         private const string Disruptive = "f3ef866a9da642c4b9f7dcd76c3567fe";
+        private const string DazzlingDisplayFeature = "bcbd674ec70ff6f4894bb5f07b6f4095";
 
         // --- Families (0..N) ---
 
@@ -34,6 +35,7 @@
             ShatterDefenses,
             AccomplishedSneakAttacker,
             ArcaneStrikeFeature,
+            DazzlingDisplayFeature,
             Disruptive
         };
 
