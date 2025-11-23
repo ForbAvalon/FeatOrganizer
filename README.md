@@ -1,6 +1,6 @@
 # Feat Organizer
 
-Organizes feats into clean categories and folders for faster builds.
+Organizes feats into clear categories and folders to make browsing easier and more intuitive.
 
 ---
 
@@ -21,11 +21,12 @@ Organizes feats into clean categories and folders for faster builds.
 
 ## Source Code
 
-GitHub: https://github.com/Flenky85/CombatOverhaul
+GitHub: https://github.com/Flenky85/FeatOrganizer
 
 ---
 
 ## Credits
 
-- Created by **Flenky**.
-- Thanks to **xADDBx** for **ToyBox**.
+- Created by Flenky.
+- Thanks to xADDBx for ToyBox, an indispensable tool for modders.
+- Thanks to WittleWolfie for WW-Blueprint-Core, which made working with blueprints much easier.

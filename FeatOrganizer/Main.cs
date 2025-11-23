@@ -43,7 +43,7 @@ namespace FeatOrganizer
                 {
                     UnsubscribeHandlers();
 
-                    if (_harmony != null) _harmony.UnpatchAll(HarmonyId);
+                    _harmony?.UnpatchAll(HarmonyId);
                     _harmony = null;
 
                     Log.Info("Disabled. Handlers unsubscribed and patches removed.");
@@ -63,7 +63,7 @@ namespace FeatOrganizer
             {
                 UnsubscribeHandlers();
 
-                if (_harmony != null) _harmony.UnpatchAll(HarmonyId);
+                _harmony?.UnpatchAll(HarmonyId);
                 _harmony = null;
 
                 _enabled = false;

@@ -33,8 +33,7 @@ namespace FeatOrganizer.Patches
         {
             var root = vm;
             while (root.Source is CharGenFeatureSelectorItemVM p) root = p;
-            var bp = root?.Feature?.Feature as BlueprintFeatureBase;
-            return bp != null && bp.GetComponent<AggregateMemberRecommendations>() != null;
+            return root?.Feature?.Feature is BlueprintFeatureBase bp && bp.GetComponent<AggregateMemberRecommendations>() != null;
         }
     }
 

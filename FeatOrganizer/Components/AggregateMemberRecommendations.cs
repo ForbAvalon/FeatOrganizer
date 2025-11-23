@@ -60,8 +60,7 @@ namespace FeatOrganizer.Components
             {
                 for (int i = 0; i < selGroups.Length; i++)
                 {
-                    List<BlueprintFeature> list;
-                    if (_byGroup != null && _byGroup.TryGetValue(selGroups[i], out list) && list != null)
+                    if (_byGroup != null && _byGroup.TryGetValue(selGroups[i], out List<BlueprintFeature> list) && list != null)
                     {
                         for (int j = 0; j < list.Count; j++)
                             candidates.Add(list[j]);
@@ -81,8 +80,7 @@ namespace FeatOrganizer.Components
                     if (feat.HideInUI || state.Unit.HasFact(feat))
                         continue;
 
-                    bool ok;
-                    if (!prereqMap.TryGetValue(feat, out ok))
+                    if (!prereqMap.TryGetValue(feat, out bool ok))
                     {
                         ok = MeetsPrereqs(feat, state.Unit, state, evalSel);
                         prereqMap[feat] = ok;
@@ -93,8 +91,7 @@ namespace FeatOrganizer.Components
                     if (!MayHaveCoreRecommendation(feat))
                         continue;
 
-                    int core;
-                    if (!coreMap.TryGetValue(feat, out core))
+                    if (!coreMap.TryGetValue(feat, out int core))
                     {
                         try { core = LevelUpRecommendationEx.GetRecommendationPriority(feat, state); }
                         catch { core = 0; }
@@ -130,7 +127,7 @@ namespace FeatOrganizer.Components
             var temp = new List<BlueprintFeature>(Members.Length);
             for (int i = 0; i < Members.Length; i++)
             {
-                var f = Members[i] != null ? Members[i].Get() : null;
+                var f = Members[i]?.Get();
                 if (f != null) temp.Add(f);
             }
             _features = temp.Count > 0 ? temp.ToArray() : Array.Empty<BlueprintFeature>();
@@ -152,8 +149,7 @@ namespace FeatOrganizer.Components
 
                 for (int g = 0; g < groups.Length; g++)
                 {
-                    List<BlueprintFeature> list;
-                    if (!_byGroup.TryGetValue(groups[g], out list))
+                    if (!_byGroup.TryGetValue(groups[g], out List<BlueprintFeature> list))
                     {
                         list = new List<BlueprintFeature>(4);
                         _byGroup.Add(groups[g], list);
@@ -200,14 +196,10 @@ namespace FeatOrganizer.Components
                     if (groups[i] != 0) tmp.Add(groups[i]);
             }
 
-#pragma warning disable CS0618
             if (bfs.Group != 0) tmp.Add(bfs.Group);
             if (bfs.Group2 != 0) tmp.Add(bfs.Group2);
-#pragma warning restore CS0618
-
             if (tmp.Count == 0) return Array.Empty<FeatureGroup>();
 
-            // unique
             var seen = Pool<HashSet<FeatureGroup>>.Get();
             var result = new List<FeatureGroup>(tmp.Count);
             try
