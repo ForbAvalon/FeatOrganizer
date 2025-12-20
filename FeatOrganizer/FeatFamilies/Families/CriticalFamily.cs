@@ -6,7 +6,7 @@
         private const string SelectionGuid = "a2d7f9c4-3b1e-4f6a-9d28-73c1e5b4a9f0";
         private const string SelectionInternal = "FF.CriticalFeats";
         private const string SelectionNameKey = "FF.CriticalFeats.Name";
-        private const string SelectionName = "Critical Feats";
+        private const string SelectionName = " Critical Feats";
         private const string SelectionDescKey = "FF.CriticalFeats.Desc";
         private const string SelectionDesc = "A collection of critical feats.";
 

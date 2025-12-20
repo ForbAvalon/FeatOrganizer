@@ -8,7 +8,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string SelectionGuid = "b1e7d3c2-48a9-4f0e-9b6a-2d4c7f8a5e31";
         private const string SelectionInternal = "FF.UnarmedFeats";
         private const string SelectionNameKey = "FF.UnarmedFeats.Name";
-        private const string SelectionName = "Unarmed Feats";
+        private const string SelectionName = " Unarmed Feats";
         private const string SelectionDescKey = "FF.UnarmedFeats.Desc";
         private const string SelectionDesc = "A collection of unarmed feats.";
 

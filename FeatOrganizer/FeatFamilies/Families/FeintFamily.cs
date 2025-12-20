@@ -6,7 +6,7 @@
         private const string SelectionGuid = "3e8f1a24-9c3b-4d72-8f1e-5a0c6b2d9e47";
         private const string SelectionInternal = "FF.FeintFeats";
         private const string SelectionNameKey = "FF.FeintFeats.Name";
-        private const string SelectionName = "Feint Feats";
+        private const string SelectionName = " Feint Feats";
         private const string SelectionDescKey = "FF.FeintFeats.Desc";
         private const string SelectionDesc = "A collection of feint feats.";
 

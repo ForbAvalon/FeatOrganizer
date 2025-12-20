@@ -6,7 +6,7 @@
         private const string SelectionGuid = "7a3e5b3a-5f6b-4b9e-9f9b-1b2a0a3f9e71";
         private const string SelectionInternal = "FF.RangedFeats";
         private const string SelectionNameKey = "FF.RangedFeats.Name";
-        private const string SelectionName = "Ranged Feats";
+        private const string SelectionName = " Ranged Feats";
         private const string SelectionDescKey = "FF.RangedFeats.Desc";
         private const string SelectionDesc = "A collection of ranged combat feats.";
 

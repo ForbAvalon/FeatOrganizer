@@ -9,7 +9,7 @@ namespace FeatOrganizer.FeatFamilies.Families
         private const string SelectionGuid = "c3a7e5f1-2b9d-4d0a-8f3e-7c1d5a9b2468";
         private const string SelectionInternal = "FF.ShieldFeats";
         private const string SelectionNameKey = "FF.ShieldFeats.Name";
-        private const string SelectionName = "Shield Feats";
+        private const string SelectionName = " Shield Feats";
         private const string SelectionDescKey = "FF.ShieldFeats.Desc";
         private const string SelectionDesc = "A collection of shield feats.";
 

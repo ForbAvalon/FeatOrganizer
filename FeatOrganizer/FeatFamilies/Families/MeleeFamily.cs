@@ -6,7 +6,7 @@
         private const string SelectionGuid = "f2a1c3d4-7b89-4e2f-9a5b-3c1d2e4f6a78";
         private const string SelectionInternal = "FF.MeleeFeat";
         private const string SelectionNameKey = "FF.MeleeFeat.Name";
-        private const string SelectionName = "Melee Feats";
+        private const string SelectionName = " Melee Feats";
         private const string SelectionDescKey = "FF.MeleeFeat.Desc";
         private const string SelectionDesc = "A collection of melee combat feats.";
 

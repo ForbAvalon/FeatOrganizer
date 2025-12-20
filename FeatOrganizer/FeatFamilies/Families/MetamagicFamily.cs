@@ -6,7 +6,7 @@
         private const string SelectionGuid = "f6a3c8d2-41e7-4b9a-8c25-9d1e3b7a2c54";
         private const string SelectionInternal = "FF.MetamagicFeats";
         private const string SelectionNameKey = "FF.MetamagicFeats.Name";
-        private const string SelectionName = "Metamagic Feats";
+        private const string SelectionName = " Metamagic Feats";
         private const string SelectionDescKey = "FF.MetamagicFeats.Desc";
         private const string SelectionDesc = "A collection of metamagic feats.";
 

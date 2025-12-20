@@ -90,25 +90,6 @@ namespace FeatOrganizer.FeatFamilies
                     ? new List<BlueprintFeatureReference>(basic.m_AllFeatures)
                     : new List<BlueprintFeatureReference>();
 
-                var remove = new HashSet<BlueprintGuid>();
-                if (spec.RemoveMembersFromBasic && spec.MemberFeats != null && spec.MemberFeats.Length > 0)
-                {
-                    foreach (var id in spec.MemberFeats) remove.Add(BlueprintGuid.Parse(id));
-                }
-                if (spec.RemoveNestedFromBasic && spec.NestedFamilies != null && spec.NestedFamilies.Length > 0)
-                {
-                    foreach (var id in spec.NestedFamilies) remove.Add(BlueprintGuid.Parse(id));
-                }
-
-                if (remove.Count > 0)
-                {
-                    features.RemoveAll(r =>
-                        r == null
-                     || remove.Contains(r.deserializedGuid)
-                     || remove.Contains(r.Guid)
-                     || r.Get() != null && remove.Contains(r.Get().AssetGuid));
-                }
-
                 var familyRef = family.ToReference<BlueprintFeatureReference>();
                 bool hasFamily = features.Exists(r =>
                     r != null && (

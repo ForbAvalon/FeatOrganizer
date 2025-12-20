@@ -6,7 +6,7 @@
         private const string SelectionGuid = "c8f4a2d7-31d6-4b7e-9c0f-5f2e1a3b7d64";
         private const string SelectionInternal = "FF.TeamworkFeat";
         private const string SelectionNameKey = "FF.TeamworkFeat.Name";
-        private const string SelectionName = "Teamwork Feats";
+        private const string SelectionName = " Teamwork Feats";
         private const string SelectionDescKey = "FF.TeamworkFeat.Desc";
         private const string SelectionDesc = "A collection of Teamwork feats.";
 

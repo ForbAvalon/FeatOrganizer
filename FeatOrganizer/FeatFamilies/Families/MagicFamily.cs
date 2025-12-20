@@ -6,7 +6,7 @@
         private const string SelectionGuid = "e7b2c1a4-3f5b-4c0a-9d3e-8f1a2b7c6d50";
         private const string SelectionInternal = "FF.MagicFeats";
         private const string SelectionNameKey = "FF.MagicFeats.Name";
-        private const string SelectionName = "Magic Feats";
+        private const string SelectionName = " Magic Feats";
         private const string SelectionDescKey = "FF.MagicFeats.Desc";
         private const string SelectionDesc = "A collection of magic feats.";
 

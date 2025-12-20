@@ -6,7 +6,7 @@
         private const string SelectionGuid = "a9c3f2d1-7e5b-46a8-9c1f-2db8476e53a4";
         private const string SelectionInternal = "FF.MountedFeats";
         private const string SelectionNameKey = "FF.MountedFeats.Name";
-        private const string SelectionName = "Mounted Feats";
+        private const string SelectionName = " Mounted Feats";
         private const string SelectionDescKey = "FF.MountedFeats.Desc";
         private const string SelectionDesc = "A collection of mounted feats.";
 
